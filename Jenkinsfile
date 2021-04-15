@@ -16,7 +16,8 @@ pipeline{
             }
             stage('deploy'){
                 steps{
-                    sh "sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d"
+                    sh '''cd /home/jenkins/.jenkins/workspace/Jenks-pipeline/chaperootodo_client/
+		                  sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d'''
                 }
             }
         }
